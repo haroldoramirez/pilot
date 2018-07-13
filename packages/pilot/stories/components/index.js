@@ -10,6 +10,7 @@ import CustomerCard from './CustomerCard'
 import DataDisplay from './DataDisplay'
 import DetailsHead from './DetailsHead'
 import EventList from './EventList'
+import ExportData from './ExportData'
 import PaymentCards from './PaymentCards'
 import Property from './Property'
 import Operations from './Operations'
@@ -39,6 +40,7 @@ storiesOf('Components', module)
   .add('Recipient section', () => <RecipientSectionState />)
   .add('Transaction details card', () => <TransactionDetailsCard />)
   .add('Event list', () => <EventList />)
+  .add('Export Data', () => <ExportData />)
   .add('DataDisplay', () => <DataDisplay />)
   .add('Reprocess details', () => <ReprocessDetails />)
   .add('TotalDisplay', () => <TotalDisplay />)
