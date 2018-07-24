@@ -8,6 +8,7 @@ import IconTable from 'emblematic-icons/svg/Menu32.svg'
 import IconWarning from 'emblematic-icons/svg/Warning32.svg'
 import Search32 from 'emblematic-icons/svg/Search32.svg'
 import Calendar32 from 'emblematic-icons/svg/Calendar32.svg'
+import Download32 from 'emblematic-icons/svg/Download32.svg'
 
 import {
   findIndex,
@@ -35,7 +36,7 @@ import style from './style.css'
 
 import Filter from '../Filter'
 import Charts from './Charts'
-
+import ExportData from '../../components/ExportData'
 import tableColumns from './tableColumns'
 
 import itemsPerPage from '../../models/itemsPerPage'
@@ -183,6 +184,16 @@ const TransactionsList = ({
                 }
                 subtitle={
                   <div className={style.toolBar}>
+                    <ExportData
+                      icon={<Download32 width={16} height={16} />}
+                      exportOptions={[
+                        { title: 'CSV', mime: '.csv' },
+                        { title: 'Excel', mime: '.xlsx' },
+                      ]}
+                      onExport={() => undefined}
+                      subTitle="Export to"
+                      titlte="Export"
+                    />
                     <SegmentedSwitch
                       disabled={loading}
                       name="view-mode"
