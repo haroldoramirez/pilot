@@ -185,14 +185,16 @@ const TransactionsList = ({
                 subtitle={
                   <div className={style.toolBar}>
                     <ExportData
-                      icon={<Download32 width={16} height={16} />}
                       exportOptions={[
-                        { title: 'CSV', mime: '.csv' },
-                        { title: 'Excel', mime: '.xlsx' },
+                        { title: 'CSV', action: () => null },
+                        { title: 'Excel', action: () => null },
                       ]}
-                      onExport={() => undefined}
-                      subTitle="Export to"
-                      titlte="Export"
+                      icon={<Download32 width={12} height={12} />}
+                      placement="bottomEnd"
+                      relevance="tiny"
+                      size="low"
+                      subTitle="Exportar para:"
+                      title="exportar tabela"
                     />
                     <SegmentedSwitch
                       disabled={loading}
