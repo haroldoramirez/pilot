@@ -1,4 +1,3 @@
-@import "former-kit-skin-pagarme/dist/styles/colors.css";
 @import "former-kit-skin-pagarme/dist/styles/typography.css";
 
 .exportPopover {
@@ -6,6 +5,7 @@
 
   & strong {
     text-align: center;
+    white-space: nowrap;
   }
 }
 
