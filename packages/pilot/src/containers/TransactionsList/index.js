@@ -62,6 +62,19 @@ const formatSelectedPeriod = (t, { start, end }) => {
   )
 }
 
+const mimeCSV = (query) => {
+ //csv dash
+}
+
+const mimeExcel = (query) => {
+ //excel dash
+}
+
+const exportOptions = [
+  { title: 'CSV', action: () => mimeCSV(query) },
+  { title: 'Excel', action: () => mimeExcel(query) },
+]
+
 const TransactionsList = ({
   amount,
   count,
@@ -185,10 +198,7 @@ const TransactionsList = ({
                 subtitle={
                   <div className={style.toolBar}>
                     <ExportData
-                      exportOptions={[
-                        { title: 'CSV', action: () => null },
-                        { title: 'Excel', action: () => null },
-                      ]}
+                      exportOptions={exportOptions}
                       icon={<Download32 width={12} height={12} />}
                       placement="bottomEnd"
                       relevance="tiny"
