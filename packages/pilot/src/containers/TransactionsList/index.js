@@ -62,17 +62,9 @@ const formatSelectedPeriod = (t, { start, end }) => {
   )
 }
 
-const mimeCSV = (query) => {
- //csv dash
-}
-
-const mimeExcel = (query) => {
- //excel dash
-}
-
 const exportOptions = [
-  { title: 'CSV', action: () => mimeCSV(query) },
-  { title: 'Excel', action: () => mimeExcel(query) },
+  { title: 'CSV', action: () => null },
+  { title: 'Excel', action: () => null },
 ]
 
 const TransactionsList = ({
@@ -203,8 +195,8 @@ const TransactionsList = ({
                       placement="bottomEnd"
                       relevance="tiny"
                       size="low"
-                      subTitle="Exportar para:"
-                      title="exportar tabela"
+                      subtitle={t('pages.transactions.export_to')}
+                      title={t('pages.transactions.export_table')}
                     />
                     <SegmentedSwitch
                       disabled={loading}
