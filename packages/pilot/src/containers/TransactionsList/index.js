@@ -193,8 +193,8 @@ const TransactionsList = ({
                       exportOptions={exportOptions}
                       icon={<Download32 width={12} height={12} />}
                       placement="bottomEnd"
-                      relevance="tiny"
-                      size="low"
+                      relevance="low"
+                      size="tiny"
                       subtitle={t('pages.transactions.export_to')}
                       title={t('pages.transactions.export_table')}
                     />

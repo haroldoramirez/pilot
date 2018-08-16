@@ -882,8 +882,6 @@
       "document": "CPF / CNPJ",
       "email": "E-mail",
       "events_title": "Histórico da transação",
-      "export_table": "Exportar tabela",
-      "export_to": "Exportar para:",
       "header": {
         "approve": "Aprovar",
         "boleto_amount": "Valor emitido",
@@ -952,6 +950,8 @@
     },
     "transactions": {
       "count": "transações",
+      "export_table": "Exportar tabela",
+      "export_to": "Exportar para:",
       "graphic": "Gráfico",
       "graphic_legends": "Legendas",
       "items_per_page_plural": "{{count}} itens por página",
