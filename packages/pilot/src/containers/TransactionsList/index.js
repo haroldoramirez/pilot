@@ -73,6 +73,7 @@ const TransactionsList = ({
   data,
   dateSelectorPresets,
   expandedRows,
+  exportData
   filterOptions,
   loading,
   onChangeViewMode,
