@@ -41,7 +41,6 @@ storiesOf('Components', module)
   .add('Event list', () => <EventList />)
   .add('DataDisplay', () => <DataDisplay />)
   .add('Reprocess details', () => <ReprocessDetails />)
-  .add('TotalDisplay', () => <TotalDisplay />)
   .add('Payment card', () => <PaymentCards />)
   .add('RiskLevel', () => <RiskLevel />)
   .add('TreeView', () => <TreeView />)
@@ -59,3 +58,51 @@ storiesOf('Components', module)
   .add('Transfer Error', () => <TransferError />)
   .add('Loader', () => <Loader />)
   .add('Message', () => <Message />)
+  .add('TotalDisplay', () => (
+    <TotalDisplay
+      totals={{
+        captured: {
+          align: 'center',
+          amountSize: 'large',
+          color: '#37cc9a',
+          titleColor: '#757575',
+        },
+        net: {
+          align: 'end',
+          amountSize: 'large',
+          color: '#4ca9d7',
+          titleColor: '#757575',
+        },
+        outgoing: {
+          align: 'start',
+          amountSize: 'large',
+          color: '#ff796f',
+          titleColor: '#757575',
+        },
+      }}
+    />
+  ))
+  .add('TotalDisplay with colors', () => (
+    <TotalDisplay
+      totals={{
+        captured: {
+          align: 'center',
+          amountSize: 'huge',
+          color: '#37cc9a',
+          titleSize: 'medium',
+        },
+        net: {
+          align: 'end',
+          amountSize: 'huge',
+          color: '#4ca9d7',
+          titleSize: 'medium',
+        },
+        outgoing: {
+          align: 'start',
+          amountSize: 'huge',
+          color: '#ff796f',
+          titleSize: 'medium',
+        },
+      }}
+    />
+  ))

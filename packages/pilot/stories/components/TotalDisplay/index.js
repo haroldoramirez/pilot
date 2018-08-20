@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import {
   Grid,
   Row,
@@ -10,22 +11,25 @@ import IconInfo from 'emblematic-icons/svg/Info24.svg'
 import Section from '../../Section'
 import TotalDisplay from '../../../src/components/TotalDisplay'
 
-const TotalDisplayExample = () => (
+const TotalDisplayExample = ({ totals }) => (
   <Fragment>
     <Section>
       <Grid>
         <Row>
           <Col palm={12} tablet={12} desk={12}>
             <TotalDisplay
-              align="center"
-              title="Valor Capturado"
+              align={totals.captured.align}
               amount={1000000000}
-              color="#37cc9a"
+              amountSize={totals.captured.amountSize}
+              color={totals.captured.color}
               subtitle={
                 <span>
                   Capturado em 10/03/2018 às 14:15h
                 </span>
               }
+              title="Valor Capturado"
+              titleColor={totals.captured.titleColor}
+              titleSize={totals.captured.titleSize}
             />
           </Col>
         </Row>
@@ -33,16 +37,19 @@ const TotalDisplayExample = () => (
         <Row>
           <Col palm={12} tablet={12} desk={12}>
             <TotalDisplay
-              align="start"
-              title="Total de Saídas"
+              align={totals.outgoing.align}
               amount={-500000}
-              color="#ff796f"
+              amountSize={totals.outgoing.amountSize}
+              color={totals.outgoing.color}
               subtitle={
                 <span>
                   MDR: R$ 6,00 | Valor estornado: R$ 15,00 <br />
                   Outras saídas: R$ 0,75 <IconInfo width={12} height={12} />
                 </span>
               }
+              title="Total de Saídas"
+              titleColor={totals.outgoing.titleColor}
+              titleSize={totals.outgoing.titleSize}
             />
           </Col>
         </Row>
@@ -50,15 +57,18 @@ const TotalDisplayExample = () => (
         <Row>
           <Col palm={12} tablet={12} desk={12}>
             <TotalDisplay
-              align="end"
-              title="Valor Líquido"
+              align={totals.net.align}
               amount={9995000000}
-              color="#4ca9d7"
+              amountSize={totals.net.amountSize}
+              color={totals.net.color}
               subtitle={
                 <span>
                   Data a receber: 20/03/2018
                 </span>
               }
+              title="Valor Líquido"
+              titleColor={totals.net.titleColor}
+              titleSize={totals.net.titleSize}
             />
           </Col>
         </Row>
@@ -66,5 +76,31 @@ const TotalDisplayExample = () => (
     </Section>
   </Fragment>
 )
+
+TotalDisplayExample.propTypes = {
+  totals: PropTypes.shape({
+    captured: PropTypes.shape({
+      align: PropTypes.string.isRequired,
+      amountSize: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      titleColor: PropTypes.string.isRequired,
+      titleSize: PropTypes.string.isRequired,
+    }).isRequired,
+    net: PropTypes.shape({
+      align: PropTypes.string.isRequired,
+      amountSize: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      titleColor: PropTypes.string.isRequired,
+      titleSize: PropTypes.string.isRequired,
+    }).isRequired,
+    outgoing: PropTypes.shape({
+      align: PropTypes.string.isRequired,
+      amountSize: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      titleColor: PropTypes.string.isRequired,
+      titleSize: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}
 
 export default TotalDisplayExample
