@@ -36,8 +36,8 @@ import {
   CardTitle,
   Col,
   Grid,
-  Row,
   Legend,
+  Row,
 } from 'former-kit'
 import IconInfo from 'emblematic-icons/svg/Info32.svg'
 import IconCheck from 'emblematic-icons/svg/Check24.svg'
@@ -420,19 +420,22 @@ class TransactionDetails extends Component {
 
   renderOutAmountSubTitle () {
     const { totalDisplayLabels } = this.props
+    const spacingBar = ' | '
 
     return (
-      <span>
-        <div>
+      <div className={style.subtitle}>
+        <span>
           {totalDisplayLabels.mdr}
-        </div>
-        <div>
+          {spacingBar}
+        </span>
+        <span>
           {totalDisplayLabels.cost}
-        </div>
-        <div>
+          {spacingBar}
+        </span>
+        <span>
           {totalDisplayLabels.refund}
-        </div>
-      </span>
+        </span>
+      </div>
     )
   }
 
@@ -648,9 +651,15 @@ class TransactionDetails extends Component {
               <CardContent className={style.content}>
                 <TotalDisplay
                   amount={payment.paid_amount}
+                  amountSize="huge"
                   color="#37cc9a"
-                  subtitle={totalDisplayLabels.captured_at}
+                  subtitle={
+                    <div className={style.subtitle}>
+                      {totalDisplayLabels.captured_at}
+                    </div>
+                  }
                   title={totalDisplayLabels.paid_amount}
+                  titleSize="medium"
                 />
               </CardContent>
             </Card>
@@ -671,9 +680,15 @@ class TransactionDetails extends Component {
                       payment.mdr_amount,
                     ])
                   }
+                  amountSize="huge"
                   color="#ff796f"
-                  subtitle={this.renderOutAmountSubTitle()}
+                  subtitle={
+                    <div className={style.subtitle}>
+                      {this.renderOutAmountSubTitle()}
+                    </div>
+                  }
                   title={totalDisplayLabels.out_amount}
+                  titleSize="medium"
                 />
               </CardContent>
             </Card>
@@ -688,9 +703,15 @@ class TransactionDetails extends Component {
               <CardContent className={style.content}>
                 <TotalDisplay
                   amount={payment.net_amount}
+                  amountSize="huge"
                   color="#4ca9d7"
-                  subtitle={totalDisplayLabels.receive_date}
+                  subtitle={
+                    <div className={style.subtitle}>
+                      {totalDisplayLabels.receive_date}
+                    </div>
+                  }
                   title={totalDisplayLabels.net_amount}
+                  titleSize="medium"
                 />
               </CardContent>
             </Card>
