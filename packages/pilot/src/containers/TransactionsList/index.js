@@ -63,8 +63,8 @@ const formatSelectedPeriod = (t, { start, end }) => {
 }
 
 const exportOptions = [
-  { title: 'CSV', action: () => null },
-  { title: 'Excel', action: () => null },
+  { title: 'CSV', action: onExport },
+  { title: 'Excel', action: onExport },
 ]
 
 const TransactionsList = ({
@@ -73,13 +73,13 @@ const TransactionsList = ({
   data,
   dateSelectorPresets,
   expandedRows,
-  exportData
   filterOptions,
   loading,
   onChangeViewMode,
   onDetailsClick,
   onPendingReviewsFilter,
   onExpandRow,
+  onExport,
   onFilterChange,
   onFilterClear,
   onOrderChange,
@@ -324,6 +324,7 @@ TransactionsList.propTypes = {
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   onDetailsClick: PropTypes.func.isRequired,
+  onExport: PropTypes.func.isRequired,
   onExpandRow: PropTypes.func.isRequired,
   onRowClick: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,

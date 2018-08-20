@@ -372,10 +372,8 @@ class TransactionsSearch extends React.Component {
     })
   }
 
-  handleExport (ExportData) {
-    this.setState({
-      ExportData
-    })
+  handleExport () {
+
   }
 
   handleSelectRow (selectedRows) {
