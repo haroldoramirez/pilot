@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import BoletoRefundDetails from './BoletoRefundDetails'
 import ConfigurationCardForm from './ConfigurationCardForm'
+import CaptureDetails from './CaptureDetails'
 import CopyButton from './CopyButton'
 import CurrencyInput from './CurrencyInput'
 import CreditCardRefundDetails from './CreditCardRefundDetails'
@@ -41,6 +42,7 @@ storiesOf('Components', module)
   .add('Event list', () => <EventList />)
   .add('DataDisplay', () => <DataDisplay />)
   .add('Reprocess details', () => <ReprocessDetails />)
+  .add('Capture Details', () => <CaptureDetails />)
   .add('TotalDisplay', () => <TotalDisplay />)
   .add('Payment card', () => <PaymentCards />)
   .add('RiskLevel', () => <RiskLevel />)
