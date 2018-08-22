@@ -62,10 +62,17 @@ const formatSelectedPeriod = (t, { start, end }) => {
   )
 }
 
-const exportOptions = [
-  { title: 'CSV', action: onExport },
-  { title: 'Excel', action: onExport },
-]
+
+const getExportOptions = onExport => ([
+  {
+    title: 'CSV',
+    action: () => onExport('csv'),
+  },
+  {
+    title: 'Excel',
+    action: () => onExport('xls'),
+  },
+])
 
 const TransactionsList = ({
   amount,
@@ -191,7 +198,7 @@ const TransactionsList = ({
                 subtitle={
                   <div className={style.toolBar}>
                     <ExportData
-                      exportOptions={exportOptions}
+                      exportOptions={getExportOptions(onExport)}
                       icon={<Download32 width={12} height={12} />}
                       placement="bottomEnd"
                       relevance="low"

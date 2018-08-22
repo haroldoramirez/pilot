@@ -372,8 +372,15 @@ class TransactionsSearch extends React.Component {
     })
   }
 
-  handleExport () {
-
+  handleExport (exportData) {
+    const newQuery = { ...this.state.query, count: this.state.result.total.count }
+    return this.props.client
+      .transactions
+      .exportData(newQuery)
+      .then((res) => {
+        console.log('arg', exportData)
+        console.log('result', res)
+      })
   }
 
   handleSelectRow (selectedRows) {
@@ -458,6 +465,7 @@ TransactionsSearch.propTypes = {
   client: PropTypes.shape({
     transactions: PropTypes.shape({
       countPendingReviews: PropTypes.func.isRequired,
+      exportData: PropTypes.func.isRequired,
       search: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,
