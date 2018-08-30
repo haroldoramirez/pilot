@@ -56,8 +56,8 @@ import {
   AnticipationResultWithoutAutomaticTransfer,
 } from './Anticipation/Result'
 import Anticipation from './Anticipation'
-import ConclusionStepSuccess from './AddRecipient/ConclusionStep/Success'
-import ConclusionStepFail from './AddRecipient/ConclusionStep/Fail'
+import ConclusionStep from './AddRecipient/ConclusionStep'
+import ErrorStep from './AddRecipient/ErrorStep'
 import ConfigurationStep from './AddRecipient/ConfigurationsStep'
 import RecipientDetailInfo from './RecipientDetailInfo'
 import RecipientBalance from './RecipientDetails/RecipientBalance'
@@ -67,10 +67,10 @@ storiesOf('Containers', module)
     <RecipientDetailInfo />
   ))
   .add('Recipient Conclusion Success', () => (
-    <ConclusionStepSuccess />
+    <ConclusionStep />
   ))
   .add('Recipient Conclusion Fail', () => (
-    <ConclusionStepFail />
+    <ErrorStep />
   ))
   .add('Recipient Configuration Step', () => (
     <ConfigurationStep />
