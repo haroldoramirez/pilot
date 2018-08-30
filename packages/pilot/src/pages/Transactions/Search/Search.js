@@ -372,14 +372,30 @@ class TransactionsSearch extends React.Component {
     })
   }
 
-  handleExport (exportData) {
+  handleExport (exportType) {
     const newQuery = { ...this.state.query, count: this.state.result.total.count }
     return this.props.client
       .transactions
-      .exportData(newQuery)
+      .exportData(newQuery, exportType)
       .then((res) => {
-        console.log('arg', exportData)
-        console.log('result', res)
+        const downloadLink = document.createElement('a')
+        downloadLink.target = '_blank'
+        const filename = 'export.'
+        downloadLink.download = filename.concat(exportType)
+
+        const blob = new Blob([res], { type: 'application/vnd.ms-excel' })
+
+        const URL = window.URL || window.webkitURL
+        const downloadUrl = URL.createObjectURL(blob)
+
+        downloadLink.href = downloadUrl
+
+        document.body.append(downloadLink)
+
+        downloadLink.click()
+
+        document.body.removeChild(downloadLink)
+        URL.revokeObjectURL(downloadUrl)
       })
   }
 
