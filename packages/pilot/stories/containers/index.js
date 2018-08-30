@@ -58,6 +58,7 @@ import {
 import Anticipation from './Anticipation'
 import ConclusionStepSuccess from './AddRecipient/ConclusionStep/Success'
 import ConclusionStepFail from './AddRecipient/ConclusionStep/Fail'
+import ConfigurationStep from './AddRecipient/ConfigurationsStep'
 
 storiesOf('Containers', module)
   .add('Recipient Conclusion Success', () => (
@@ -65,6 +66,9 @@ storiesOf('Containers', module)
   ))
   .add('Recipient Conclusion Fail', () => (
     <ConclusionStepFail />
+  ))
+  .add('Recipient Configuration Step', () => (
+    <ConfigurationStep />
   ))
   .add('Anticipation Form', () => (
     <AnticipationForm />
