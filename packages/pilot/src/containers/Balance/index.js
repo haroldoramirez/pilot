@@ -353,18 +353,18 @@ class Balance extends Component {
             tv={4}
           >
             <Card>
-            <BalanceTotalDisplay
-              action={isNil(onWithdrawClick) ? null : withdrawalAction}
-              amount={formatAmount(amount)}
-              detail={
-                <span>
-                  {t('pages.balance.available_withdrawal')}
-                  <strong> {currencyFormatter(withdrawal)} </strong>
-                </span>
-              }
-              disabled={disabled}
-              title={t('pages.balance.withdrawal_title')}
-            />
+              <BalanceTotalDisplay
+                action={isNil(onWithdrawClick) ? null : withdrawalAction}
+                amount={formatAmount(amount)}
+                detail={
+                  <span>
+                    {t('pages.balance.available_withdrawal')}
+                    <strong> {currencyFormatter(withdrawal)} </strong>
+                  </span>
+                }
+                disabled={disabled}
+                title={t('pages.balance.withdrawal_title')}
+              />
             </Card>
           </Col>
           <Col
@@ -374,13 +374,13 @@ class Balance extends Component {
             tv={4}
           >
             <Card>
-            <BalanceTotalDisplay
-              action={isNil(onAnticipationClick) ? null : anticipationAction}
-              amount={formatAmount(outcoming)}
-              detail={this.renderAnticipation()}
-              disabled={disabled || anticipationLoading || anticipationError}
-              title={t('pages.balance.anticipation_title')}
-            />
+              <BalanceTotalDisplay
+                action={isNil(onAnticipationClick) ? null : anticipationAction}
+                amount={formatAmount(outcoming)}
+                detail={this.renderAnticipation()}
+                disabled={disabled || anticipationLoading || anticipationError}
+                title={t('pages.balance.anticipation_title')}
+              />
             </Card>
           </Col>
           <Col
@@ -389,13 +389,15 @@ class Balance extends Component {
             tablet={6}
             tv={4}
           >
-            <PendingRequests
-              emptyMessage={t('pages.balance.pending_requests_empty_message')}
-              loading={disabled}
-              onCancel={isNil(onCancelRequestClick) ? null : this.handleRequestCancelClick}
-              requests={this.getPendingRequests()}
-              title={t('pages.balance.pending_requests_title')}
-            />
+            <Card>
+              <PendingRequests
+                emptyMessage={t('pages.balance.pending_requests_empty_message')}
+                loading={disabled}
+                onCancel={isNil(onCancelRequestClick) ? null : this.handleRequestCancelClick}
+                requests={this.getPendingRequests()}
+                title={t('pages.balance.pending_requests_title')}
+              />
+            </Card>
           </Col>
         </Row>
         <Row>
@@ -431,11 +433,11 @@ class Balance extends Component {
               <CardContent>
                 <CardSection>
                   <CardContent>
-                <BalanceSummary
-                  amount={this.getSummaryTotal()}
-                  dates={dates}
-                />
-              </CardContent>
+                    <BalanceSummary
+                      amount={this.getSummaryTotal()}
+                      dates={dates}
+                    />
+                  </CardContent>
                 </CardSection>
               </CardContent>
             </Card>
