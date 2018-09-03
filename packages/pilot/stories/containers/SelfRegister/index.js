@@ -2,10 +2,21 @@ import React from 'react'
 import { identity } from 'ramda'
 import { action } from '@storybook/addon-actions'
 import SelfRegister from '../../../src/containers/SelfRegister'
+import translations from '../../../public/locales/pt/translations.json'
 
 const actionPrevious = action('Previous')
 const actionRedirectToHome = action('Go to Home')
 const actionSubmit = action('Submit')
+
+const translate = (path) => {
+  const keys = path.split('.')
+  let part = translations
+  keys.forEach((element) => {
+    part = part[element]
+  })
+
+  return part
+}
 
 const SelfRegisterCreateAccount = () => (
   <SelfRegister
@@ -13,7 +24,7 @@ const SelfRegisterCreateAccount = () => (
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}
     step="create-account"
-    t={identity}
+    t={translate}
   />
 )
 
@@ -23,7 +34,7 @@ const SelfRegisterCheckCNPJ = () => (
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}
     step="check-cnpj"
-    t={identity}
+    t={translate}
   />
 )
 
@@ -33,7 +44,7 @@ const SelfRegisterTypeCNPJ = () => (
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}
     step="type-cnpj"
-    t={identity}
+    t={translate}
   />
 )
 
@@ -43,7 +54,7 @@ const SelfRegisterWithoutCNPJ = () => (
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}
     step="without-cnpj"
-    t={identity}
+    t={translate}
   />
 )
 
@@ -53,7 +64,7 @@ const SelfRegisterCompanyData = () => (
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}
     step="company-data"
-    t={identity}
+    t={translate}
   />
 )
 
