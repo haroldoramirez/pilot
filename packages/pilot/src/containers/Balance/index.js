@@ -15,6 +15,7 @@ import {
   Button,
   Card,
   CardContent,
+  CardSection,
   Col,
   DateInput,
   Grid,
@@ -424,10 +425,14 @@ class Balance extends Component {
                 </div>
               </CardContent>
               <CardContent>
+                <CardSection>
+                  <CardContent>
                 <BalanceSummary
                   amount={this.getSummaryTotal()}
                   dates={dates}
                 />
+              </CardContent>
+                </CardSection>
               </CardContent>
             </Card>
           </Col>
