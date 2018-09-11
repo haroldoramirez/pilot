@@ -11,7 +11,7 @@ const exampleAccounts = [
     number: '0001',
     type: 'conta_corrente',
     agency: '7',
-    bank: '340',
+    bank: '001',
     id: '1',
   },
   {
