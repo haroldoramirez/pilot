@@ -97,7 +97,9 @@ const renderBankAccount = (bankAccount, action, t) => (
       </Col>
       <Col tv={1} desk={1} tablet={1} palm={1}>
         <span className={styles.infoTitle}>{t('pages.add_recipient.bank')}</span>
-        <span className={styles.info}>{bankAccount.bank}</span>
+        <span className={styles.info}>
+          { t(`models.bank_code.${bankAccount.bank}`) }
+        </span>
       </Col>
       <Col tv={1} desk={1} tablet={1} palm={1}>
         <span className={styles.infoTitle}>{t('pages.add_recipient.agency')}</span>
@@ -348,9 +350,9 @@ ConfirmStep.defaultProps = {
     [BANK_ACCOUNT]: {
       name: '',
       number: '',
-      type: '',
+      type: 'conta_corrente',
       agency: '',
-      bank: '',
+      bank: '001',
     },
   },
 }
