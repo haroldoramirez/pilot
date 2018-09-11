@@ -289,7 +289,7 @@ class AddRecipients extends Component {
 
     return (
       <Fragment>
-        <Loader visible={isLoading} />
+        { isLoading && <Loader visible /> }
         <Card>
           <Steps
             status={stepsStatus}
