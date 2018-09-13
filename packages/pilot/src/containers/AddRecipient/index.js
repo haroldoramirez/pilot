@@ -77,12 +77,12 @@ class AddRecipients extends Component {
     const currentStep = this.steps[currentStepNumber]
     const stepsStatus = this.createNewStepStatus(nextStepNumber)
 
+    const newData = { ...data }
+    if (stepData) newData[currentStep.id] = stepData
+
     this.setState({
       currentStepNumber: nextStepNumber,
-      data: {
-        ...data,
-        [currentStep.id]: stepData,
-      },
+      data: newData,
       stepsStatus,
     })
   }
@@ -90,13 +90,12 @@ class AddRecipients extends Component {
   handleAsyncNextStep (stepData) {
     const { data, currentStepNumber } = this.state
     const currentStep = this.steps[currentStepNumber]
+    const newData = { ...data }
+    if (stepData) newData[currentStep.id] = stepData
 
     this.setState({
       isLoading: true,
-      data: {
-        ...data,
-        [currentStep.id]: stepData,
-      },
+      data: newData,
     }, () => {
       this.fetchAndSetNextStepData()
     })
