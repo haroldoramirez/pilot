@@ -128,7 +128,7 @@ class PageSelfRegister extends Component {
 
     return (
       <SelfRegister
-        flowData={registerData}
+        registerData={registerData}
         onPreviousButton={this.actionOnPreviousButton}
         onRedirectToHome={this.handleHomeRedirect}
         onSubmit={this.actionSubitButton}

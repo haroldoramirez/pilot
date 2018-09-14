@@ -46,7 +46,7 @@ const SelfRegister = ({
 
   return (
     <SelfRegisterWaiting
-      dataFlow={registerData}
+      registerData={registerData}
       onRedirectToHome={onRedirectToHome}
       step={step}
       t={t}
