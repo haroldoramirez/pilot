@@ -1,16 +1,19 @@
 function handleMaskField (fieldName) {
-  const newState = {}
-
   return (event) => {
+    const newState = this.state.formData
     newState[fieldName] = event.target.value
 
-    this.setState(newState)
+    this.setState({
+      formData: newState,
+    })
   }
 }
 
 function onFormMaskFieldChange (data) {
   this.setState({
-    ...data,
+    formData: {
+      ...data,
+    },
   })
 }
 

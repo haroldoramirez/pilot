@@ -25,7 +25,9 @@ class SelfRegisterCompanyData extends Component {
     super()
 
     this.state = {
-      commercialPhone: '',
+      formData: {
+        commercialPhone: '',
+      },
     }
 
     this.handleMaskField = handleMaskField.bind(this)
@@ -45,7 +47,7 @@ class SelfRegisterCompanyData extends Component {
         <Form
           className={style.fillWidth}
           data={{
-            ...this.state,
+            ...this.state.formData,
           }}
           onChange={this.onFormMaskFieldChange}
           onSubmit={onSubmit}
