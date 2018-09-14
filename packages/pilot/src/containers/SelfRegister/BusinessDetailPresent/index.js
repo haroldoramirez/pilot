@@ -18,7 +18,7 @@ import style from '../style.css'
 
 const step = 'business-detail-present'
 
-const SelfRegisterBusinessDetailPresent = ({ onSubmit, t }) => {
+const SelfRegisterBusinessDetailPresent = ({ onSubmit, registerData, t }) => {
   const isRequired = requiredValidation(t('pages.self_register.required_error'))
 
   return (
@@ -34,6 +34,9 @@ const SelfRegisterBusinessDetailPresent = ({ onSubmit, t }) => {
 
       <Form
         className={style.fillWidth}
+        data={{
+          ...registerData,
+        }}
         onSubmit={onSubmit}
         validateOn="blur"
         validation={{
@@ -74,8 +77,14 @@ const SelfRegisterBusinessDetailPresent = ({ onSubmit, t }) => {
 }
 
 SelfRegisterBusinessDetailPresent.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+SelfRegisterBusinessDetailPresent.defaultProps = {
+  registerData: {},
 }
 
 export default SelfRegisterBusinessDetailPresent
