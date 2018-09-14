@@ -87,7 +87,6 @@ class Root extends Component {
     }
 
     if (!client) {
-      console.log(path)
       return (
         <Switch>
           <Route path="/account/register" component={SelfRegister} />
