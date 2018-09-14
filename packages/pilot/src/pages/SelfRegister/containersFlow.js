@@ -32,7 +32,7 @@ const containersFlowPrevious = {
 }
 
 const firstContainers = 'create-account'
-const lastContainers = 'waiting-risk-analysis'
+const lastContainers = 'contract'
 
 export {
   firstContainers,
