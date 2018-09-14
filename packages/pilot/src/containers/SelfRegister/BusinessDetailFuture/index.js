@@ -59,7 +59,7 @@ const SelfRegisterBusinessDetailFuture = ({ onSubmit, registerData, t }) => {
         onSubmit={onSubmit}
         validateOn="blur"
         validation={{
-          platform: isRequired,
+          salesStarts: isRequired,
           segment: isRequired,
         }}
       >
