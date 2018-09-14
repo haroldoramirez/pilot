@@ -9,7 +9,7 @@ import {
 } from 'ramda'
 import { translate } from 'react-i18next'
 import { withRouter } from 'react-router-dom'
-import createCompany from 'cockpit/src/company/register'
+import { createCompany } from 'cockpit'
 import SelfRegister from '../../containers/SelfRegister/'
 import {
   firstContainers,
@@ -35,7 +35,7 @@ class PageSelfRegister extends Component {
 
     this.state = {
       registerData: {
-        email: 'foo@bar.com',
+        email: '',
       },
       step: 'create-account',
     }
@@ -104,17 +104,18 @@ class PageSelfRegister extends Component {
       const {
         history,
       } = this.props
-      createCompany
-        .register(registerData)
+      createCompany(registerData)
         .then((result) => {
-          console.log(result)
-          history.redirect()
+          if (result.ok) {
+            return history.replace('roda de ok')
+          }
+          throw result
         })
         .catch((e) => {
           // TODO: Se tiver tido erro interno, deve ser exibido uma mensagem
+          // history.replace('roda de erro')
 
-          // TODO: Se tiver tido erro nas validações dos campos, o que deve acontecer?
-          console.log('catch error!')
+          // TODO: Se tiver tido erro nas validações dos campos, o que deve acontecer
           console.log(e)
         })
     }
