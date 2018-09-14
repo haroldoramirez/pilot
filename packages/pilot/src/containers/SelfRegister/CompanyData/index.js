@@ -21,12 +21,12 @@ const step = 'company-data'
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterCompanyData extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       formData: {
-        commercialPhone: '',
+        ...props.registerData,
       },
     }
 
@@ -108,8 +108,14 @@ class SelfRegisterCompanyData extends Component {
 }
 
 SelfRegisterCompanyData.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+SelfRegisterCompanyData.defaultProps = {
+  registerData: {},
 }
 
 export default SelfRegisterCompanyData
