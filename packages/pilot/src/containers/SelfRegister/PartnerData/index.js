@@ -62,8 +62,8 @@ class SelfRegisterPartnerData extends Component {
           onSubmit={onSubmit}
           validateOn="blur"
           validation={{
-            partner_name: isRequired(t),
-            birth_date: isRequired(t),
+            partnerName: isRequired(t),
+            birthDate: isRequired(t),
             cpf: isRequired(t),
             montherName: isRequired(t),
             phone: isRequired(t),
@@ -75,7 +75,7 @@ class SelfRegisterPartnerData extends Component {
               <Col tv={12} desk={12} tablet={12} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_data.partner_name')}
-                  name="partner_name"
+                  name="partnerName"
                 />
               </Col>
             </Row>
@@ -85,8 +85,8 @@ class SelfRegisterPartnerData extends Component {
                 <FormInput
                   label={t('pages.self_register.partner_data.birth_date')}
                   mask={masks.date}
-                  name="birth_date"
-                  onChange={this.handleMaskField('birth_date')}
+                  name="birthDate"
+                  onChange={this.handleMaskField('birthDate')}
                 />
               </Col>
               <Col tv={8} desk={8} tablet={7} palm={12}>
