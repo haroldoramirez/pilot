@@ -1,7 +1,6 @@
 import React from 'react'
 // import { identity } from 'ramda'
 import { storiesOf } from '@storybook/react'
-import { Layout } from 'former-kit'
 import { action } from '@storybook/addon-actions'
 
 import SelfRegister from '../../../src/pages/SelfRegister'
@@ -22,13 +21,11 @@ const translate = (path) => {
 
 storiesOf('Pages', module)
   .add('Self Register', () => (
-    <Layout>
-      <SelfRegister
-        onCompanyCreated={actionCompanyCreated}
-        onRedirectToHome={actionRedirectToHome}
-        step="create-account"
-        t={translate}
-      />
-    </Layout>
+    <SelfRegister
+      onCompanyCreated={actionCompanyCreated}
+      onRedirectToHome={actionRedirectToHome}
+      step="create-account"
+      t={translate}
+    />
   ))
 

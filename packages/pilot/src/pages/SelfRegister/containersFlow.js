@@ -1,3 +1,6 @@
+const isAlreadySell = (containerYes, containerNo) => ({ alreadySell }) =>
+  ((alreadySell === true) ? containerYes : containerNo)
+
 const containersFlowForward = {
   'create-account': 'check-cnpj',
   'check-cnpj': data => (data.hasCNPJ ? 'type-cnpj' : 'without-cnpj'),
@@ -5,19 +8,19 @@ const containersFlowForward = {
   'company-data': 'partner-data',
   'partner-data': 'partner-address',
   'partner-address': 'already-sell',
-  'already-sell': 'business-detail-present',
-  'business-detail-present': 'business-detail-future',
-  'business-detail-future': 'sales-amount-present',
-  'sales-amount-present': 'sales-amount-future',
+  'already-sell': isAlreadySell('business-detail-present', 'business-detail-future'),
+  'business-detail-present': 'sales-amount-present',
+  'business-detail-future': 'sales-amount-future',
+  'sales-amount-present': 'contract',
   'sales-amount-future': 'contract',
   contract: 'waiting-risk-analysis',
 }
 
 const containersFlowPrevious = {
-  contract: 'sales-amount-future',
-  'sales-amount-future': 'sales-amount-present',
-  'sales-amount-present': 'business-detail-future',
-  'business-detail-future': 'business-detail-present',
+  contract: isAlreadySell('sales-amount-present', 'sales-amount-future'),
+  'sales-amount-future': 'business-detail-future',
+  'sales-amount-present': 'business-detail-present',
+  'business-detail-future': 'already-sell',
   'business-detail-present': 'already-sell',
   'already-sell': 'partner-address',
   'partner-address': 'partner-data',
