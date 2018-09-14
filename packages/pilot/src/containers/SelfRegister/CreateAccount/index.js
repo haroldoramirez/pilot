@@ -32,6 +32,7 @@ class SelfRegisterCreateAccount extends Component {
 
     this.state = {
       formData: {
+        accountEmail: '',
         password: '',
         ...props.registerData,
       },
@@ -70,14 +71,14 @@ class SelfRegisterCreateAccount extends Component {
           onChange={this.handleFormChange}
           onSubmit={onSubmit}
           validation={{
-            email: isRequired,
+            accountEmail: isRequired,
             password: isRequired,
             confirmPassword: [isRequired, equalsString(t, password)],
           }}
         >
           <FormInput
             label={t('pages.self_register.create_account.email')}
-            name="email"
+            name="accountEmail"
           />
 
           <FormInput
