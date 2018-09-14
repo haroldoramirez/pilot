@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { merge } from 'ramda'
-import createCompany from './createCompany'
+import {
+  compose,
+  equals,
+  merge,
+  pipe,
+  type,
+} from 'ramda'
+import { translate } from 'react-i18next'
+import { withRouter } from 'react-router-dom'
+import createCompany from 'cockpit/src/company/register'
 import SelfRegister from '../../containers/SelfRegister/'
 import {
   firstContainers,
@@ -10,20 +18,32 @@ import {
   containersFlowPrevious,
 } from './containersFlow'
 
+
+const enhanced = compose(
+  translate(),
+  withRouter
+)
+
+const isFunction = pipe(
+  type,
+  equals('Function')
+)
+
 class PageSelfRegister extends Component {
   constructor () {
     super()
 
     this.state = {
+      registerData: {
+        email: 'foo@bar.com',
+      },
       step: 'create-account',
-      // step: 'partner-data-part-2',
-      data: {},
     }
 
-    this.inFirstContainer = this.inFirstContainer.bind(this)
-    this.isLastPage = this.inLastContainer.bind(this)
     this.actionOnPreviousButton = this.actionOnPreviousButton.bind(this)
     this.actionSubitButton = this.actionSubitButton.bind(this)
+    this.inFirstContainer = this.inFirstContainer.bind(this)
+    this.isLastPage = this.inLastContainer.bind(this)
   }
 
   inFirstContainer () {
@@ -41,6 +61,17 @@ class PageSelfRegister extends Component {
   actionOnPreviousButton () {
     if (this.inFirstContainer()) {
       window.location = 'http://pagar.me/landing-page-pagar-me'
+      return
+    }
+
+    const previousStep = containersFlowPrevious[this.state.step]
+
+    if (isFunction(previousStep)) {
+      const { registerData } = this.state
+
+      this.setState({
+        step: previousStep(registerData),
+      })
     } else {
       const previousPage = containersFlowPrevious[this.state.step]
 
@@ -50,28 +81,34 @@ class PageSelfRegister extends Component {
     }
   }
 
-  actionSubitButton (newData, errors) {
+  actionSubitButton (newRegisterData, errors) {
     if (errors != null) {
       return
     }
 
-    const { data } = this.state
-    const updatedData = merge(data, newData)
+    const { registerData } = this.state
+    const updatedData = merge(registerData, newRegisterData)
 
     const nextStep = containersFlowForward[this.state.step]
 
     this.setState({
-      step: (typeof nextStep === 'function' ? nextStep(newData) : nextStep),
-      data: updatedData,
-    })
+      step: (
+        isFunction(nextStep)
+          ? nextStep(newRegisterData)
+          : nextStep
+      ),
+      registerData: updatedData,
 
+    })
     if (this.inLastContainer()) {
-      createCompany(data)
+      const {
+        history,
+      } = this.props
+      createCompany
+        .register(registerData)
         .then((result) => {
           console.log(result)
-
-          const { onCompanyCreated } = this.props
-          onCompanyCreated(data)
+          history.redirect()
         })
         .catch((e) => {
           // TODO: Se tiver tido erro interno, deve ser exibido uma mensagem
@@ -84,26 +121,29 @@ class PageSelfRegister extends Component {
   }
 
   render () {
-    const { onRedirectToHome, t } = this.props
-    const { step } = this.state
+    const {
+      registerData,
+      step,
+    } = this.state
 
     return (
-      // TODO: Deve ser passado o state.data para ele poder preencher os campos já escrito
       <SelfRegister
+        flowData={registerData}
         onPreviousButton={this.actionOnPreviousButton}
-        onRedirectToHome={onRedirectToHome}
+        onRedirectToHome={this.handleHomeRedirect}
         onSubmit={this.actionSubitButton}
         step={step}
-        t={t}
+        t={this.props.t}
       />
     )
   }
 }
 
 PageSelfRegister.propTypes = {
-  onCompanyCreated: PropTypes.func.isRequired,
-  onRedirectToHome: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    redirect: PropTypes.func.isRequired,
+  }).isRequired,
   t: PropTypes.func.isRequired,
 }
 
-export default PageSelfRegister
+export default enhanced(PageSelfRegister)
