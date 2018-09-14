@@ -13,7 +13,6 @@ import {
 
 import { transactionSpec } from '../shared/export'
 
-
 const pickProps = [
   'amount',
   'antifraud',
@@ -45,14 +44,19 @@ const exportKeys = (exportData) => {
   return values.join('\","').replace('','\"').concat('\"') // eslint-disable-line
 }
 
-const exportValues = (exportData) => {
+const exportValuesCSV = (exportData) => {
   const values = Object.values(exportData)
   return [values.join('\","').replace('','\"').concat('\"')] // eslint-disable-line
 }
 
-const formatToCSV = exportData => exportValues(exportData)
+const exportValuesXLS = (exportData) => {
+  const values = Object.values(exportData)
+  return values
+}
 
-const formatToXLS = exportData => exportValues(exportData)
+const formatToCSV = exportData => exportValuesCSV(exportData)
+
+const formatToXLS = exportData => exportValuesXLS(exportData)
 
 const format = exportType => (exportData) => {
   if (exportType === 'csv') {

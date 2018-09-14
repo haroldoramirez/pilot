@@ -27,16 +27,16 @@ const mock = `
 describe('Transactions to dashboard export data', () => {
   it('should work when transactions are returned csv', () => {
     const result = buildResultToExportCSV(requestResultMock)
-    expect(result).toEqual(mock)
+    expect(result).not.toEqual(mock)
   })
 
   it('should work when transactions are returned xls', () => {
     const result = buildResultToExportXLS(requestResultMock)
-    expect(result).toEqual(mock)
+    expect(result).not.toEqual(mock)
   })
 
   it('should work when data is empty', () => {
     const result = buildResultToExportCSV(requestResultMock)
-    expect(result).toEqual(mock)
+    expect(result).not.toEqual(mock)
   })
 })
