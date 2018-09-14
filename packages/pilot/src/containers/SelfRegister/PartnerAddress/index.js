@@ -20,12 +20,12 @@ const step = 'partner-address'
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterPartnerAddress extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       formData: {
-        cep: '',
+        ...props.registerData,
       },
     }
 
@@ -127,8 +127,14 @@ class SelfRegisterPartnerAddress extends Component {
 }
 
 SelfRegisterPartnerAddress.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+SelfRegisterPartnerAddress.defaultProps = {
+  registerData: {},
 }
 
 export default SelfRegisterPartnerAddress
