@@ -18,6 +18,7 @@ import SelfRegisterContainer from './SelfRegisterContainer'
 import style from './style.css'
 
 const SelfRegisterForm = ({
+  registerData,
   onPreviousButton,
   onRedirectToHome,
   onSubmit,
@@ -56,6 +57,7 @@ const SelfRegisterForm = ({
                     <Logo className={style.logo} width={140} />
                     <div className={classNames(style.growContent, style.centerContent)}>
                       <SelfRegisterContainer
+                        registerData={registerData}
                         onRedirectToHome={onRedirectToHome}
                         onSubmit={onSubmit}
                         step={step}
@@ -82,6 +84,8 @@ const SelfRegisterForm = ({
 )
 
 SelfRegisterForm.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onPreviousButton: PropTypes.func.isRequired,
   onRedirectToHome: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
@@ -104,6 +108,7 @@ SelfRegisterForm.propTypes = {
 }
 
 SelfRegisterForm.defaultProps = {
+  registerData: {},
   step: 'create-account',
 }
 

@@ -35,6 +35,7 @@ const SelfRegister = ({
   if (isForm(step)) {
     return (
       <SelfRegisterForm
+        registerData={registerData}
         onPreviousButton={onPreviousButton}
         onRedirectToHome={onRedirectToHome}
         onSubmit={onSubmit}
