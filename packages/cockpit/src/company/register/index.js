@@ -3,14 +3,16 @@ import moment from 'moment'
 import {
   always,
   applySpec,
+  ifElse,
   isNil,
   join,
   pipe,
   prop,
+  propEq,
   reverse,
   split,
-  unless,
   T,
+  unless,
 } from 'ramda'
 import { apiUrl } from '../../environment'
 
@@ -39,6 +41,12 @@ const getTimestampFromBirthDate = pipe(
   )
 )
 
+const getDocumentType = ifElse(
+  propEq('hasCNPJ', true),
+  always('cnpj'),
+  always('cpf')
+)
+
 const buildCompanyParameters = applySpec({
   company_template_token: always('cjkifh2ja0000y0739q5odyyt'),
   email: prop('email'),
@@ -46,7 +54,7 @@ const buildCompanyParameters = applySpec({
   should_activate: T,
   password: prop('password'),
   company_name: prop('legalName'),
-  document_type: prop('cnpj'),
+  document_type: getDocumentType,
   document_number: prop('cnpj'),
   site_url: prop('site'),
   partner_name: prop('partnerName'),
