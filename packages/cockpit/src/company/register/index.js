@@ -77,8 +77,12 @@ const buildCompanyParameters = applySpec({
 const registerCompany = (registerData) => {
   const body = JSON.stringify(buildCompanyParameters(registerData))
   return fetch(`${apiUrl}companies`, {
-    method: 'POST',
     body,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
   })
 }
 export default registerCompany
