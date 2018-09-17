@@ -6,9 +6,21 @@ import { compose } from 'ramda'
 
 import AddRecipient from '../../../../src/containers/AddRecipient'
 
-const mapStateToProps = ({
-  account: { client },
-}) => ({ client })
+const mapStateToProps = (state) => {
+  const { account } = state
+  const { client, company } = account
+  const { anticipation_config: anticipationConfig } = company || {}
+  const {
+    config_anticipation_params: canConfigureAnticipation,
+    minimum_delay: minimumAnticipationDays,
+  } = anticipationConfig || {}
+
+  return {
+    client,
+    canConfigureAnticipation,
+    minimumAnticipationDays,
+  }
+}
 
 const enhanced = compose(
   translate(),
@@ -25,7 +37,7 @@ class AddRecipientPage extends Component {
     this.submitRecipient = this.submitRecipient.bind(this)
   }
 
-  /* eslint-disable class-methods-use-this, no-console */
+  /* eslint-disable class-methods-use-this */
 
   // TODO: voltar para a rota /recipients
   onExit () {
@@ -37,19 +49,25 @@ class AddRecipientPage extends Component {
     console.log('onViewDetails', recipient)
   }
 
-  // TODO: fazer o cadastro do novo recebedor pela API
-  submitRecipient (recipient) {
-    console.log('submitRecipient', recipient)
-    return Promise.resolve({ id: 1 })
-  }
+  /* eslint-enable class-methods-use-this */
 
-  /* eslint-enable class-methods-use-this, no-console */
+  submitRecipient (recipient) {
+    return this.props.client.recipient.add(recipient)
+  }
 
   fetchAccounts (document) {
     return this.props.client.recipient.bankAccount(document)
   }
 
   render () {
+    // TODO: Não mostrar 10/25 e d+x se a company não puder configurar d+x
+    // (config_anticipation_params)
+    // TODO: Prazo de recebimento d+x tem um valor minimo (minimum_delay)
+    /* eslint-disable no-console */
+    console.log('canConfigureAnticipation', this.props.canConfigureAnticipation)
+    console.log('minimumAnticipationDays', this.props.minimumAnticipationDays)
+    /* eslint-enable no-console */
+
     return (
       <AddRecipient
         fetchAccounts={this.fetchAccounts}
@@ -65,10 +83,18 @@ class AddRecipientPage extends Component {
 AddRecipientPage.propTypes = {
   client: PropTypes.shape({
     recipient: PropTypes.shape({
+      add: PropTypes.func.isRequired,
       bankAccount: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,
+  canConfigureAnticipation: PropTypes.bool,
+  minimumAnticipationDays: PropTypes.number,
   t: PropTypes.func.isRequired,
+}
+
+AddRecipientPage.defaultProps = {
+  canConfigureAnticipation: true,
+  minimumAnticipationDays: 15,
 }
 
 export default enhanced(AddRecipientPage)
