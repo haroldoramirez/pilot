@@ -40,8 +40,9 @@ class PageSelfRegister extends Component {
       step: 'create-account',
     }
 
-    this.actionOnPreviousButton = this.actionOnPreviousButton.bind(this)
-    this.actionSubitButton = this.actionSubitButton.bind(this)
+    this.handleHomeRedirect = this.handleHomeRedirect.bind(this)
+    this.handleOnBack = this.handleOnBack.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.inFirstContainer = this.inFirstContainer.bind(this)
     this.isLastPage = this.inLastContainer.bind(this)
   }
@@ -58,7 +59,7 @@ class PageSelfRegister extends Component {
     return step === lastContainers
   }
 
-  actionOnPreviousButton () {
+  handleOnBack () {
     if (this.inFirstContainer()) {
       window.location = 'http://pagar.me/landing-page-pagar-me'
       return
@@ -81,7 +82,7 @@ class PageSelfRegister extends Component {
     }
   }
 
-  actionSubitButton (newRegisterData, errors) {
+  handleSubmit (newRegisterData, errors) {
     if (errors != null) {
       return
     }
@@ -112,13 +113,17 @@ class PageSelfRegister extends Component {
           throw result
         })
         .catch((e) => {
-          // TODO: Se tiver tido erro interno, deve ser exibido uma mensagem
+          // TODO: When an internal error shows up a message must be shown
+          // TODO: The API validation ERROS must be handled here
           // history.replace('roda de erro')
-
-          // TODO: Se tiver tido erro nas validações dos campos, o que deve acontecer
           console.log(e)
         })
     }
+  }
+
+  handleHomeRedirect () {
+    // TODO: validate the home route
+    this.props.history.replace('home route')
   }
 
   render () {
@@ -130,9 +135,9 @@ class PageSelfRegister extends Component {
     return (
       <SelfRegister
         registerData={registerData}
-        onPreviousButton={this.actionOnPreviousButton}
+        onPreviousButton={this.handleOnBack}
         onRedirectToHome={this.handleHomeRedirect}
-        onSubmit={this.actionSubitButton}
+        onSubmit={this.handleSubmit}
         step={step}
         t={this.props.t}
       />
@@ -142,7 +147,7 @@ class PageSelfRegister extends Component {
 
 PageSelfRegister.propTypes = {
   history: PropTypes.shape({
-    redirect: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
   }).isRequired,
   t: PropTypes.func.isRequired,
 }
