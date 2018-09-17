@@ -188,6 +188,7 @@ class TransactionDetails extends Component {
 
     this.handleAlertDismiss = this.handleAlertDismiss.bind(this)
     this.handleAlertDismiss = this.handleAlertDismiss.bind(this)
+    this.handleCapture = this.handleCapture.bind(this)
     this.handleCloseManualReview = this.handleCloseManualReview.bind(this)
     this.handleCloseRefund = this.handleCloseRefund.bind(this)
     this.handleCopyBoletoUrlClick = this.handleCopyBoletoUrlClick.bind(this)
@@ -240,6 +241,10 @@ class TransactionDetails extends Component {
   handleAlertDismiss () {
     const { history } = this.props
     history.push('/')
+  }
+
+  handleCapture () {
+    const { transaction } = this.state.result
   }
 
   handleCopyBoletoUrlClick () {
@@ -435,6 +440,7 @@ class TransactionDetails extends Component {
           installmentColumns={installmentColumns}
           metadataTitle={t('pages.transaction.metadata')}
           nextTransactionId={nextTransactionId}
+          onCapture={this.handleCapture}
           onCopyBoletoUrl={this.handleCopyBoletoUrlClick}
           onDismissAlert={this.handleAlertDismiss}
           onManualReviewApprove={this.handleManualReviewApprove}

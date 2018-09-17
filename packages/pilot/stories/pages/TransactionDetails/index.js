@@ -131,6 +131,7 @@ storiesOf('Pages', module)
         headerLabels={headerLabels}
         installmentColumns={formatColumns(installmentColumns)}
         metadataTitle="Metadata"
+        onCapture={action('capture')}
         onCopyBoletoUrl={action('copy boleto')}
         onDismissAlert={action('dismiss alert')}
         onExport={action('export')}
@@ -154,4 +155,3 @@ storiesOf('Pages', module)
       />
     </Layout>
   ))
-

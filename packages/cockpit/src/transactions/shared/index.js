@@ -283,6 +283,7 @@ const transactionSpec = {
     prop('postback_url')
   ),
   risk_level: prop('risk_level'),
+  referer: prop('referer'),
   soft_descriptor: prop('soft_descriptor'),
   status: prop('status'),
   status_reason: ifElse(

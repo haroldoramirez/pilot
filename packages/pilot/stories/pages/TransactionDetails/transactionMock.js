@@ -8,10 +8,11 @@ const transaction = {
     "sequence_number": 3082517,
     "transaction_id": 3082517
   },
-  "amount": 985172498,  
+  "amount": 985172498,
   "antifraud": null,
   "boleto": null,
   "capabilities": {
+    "capturable": true,
     "refundable": true,
     "reprocessable": true,
   },
