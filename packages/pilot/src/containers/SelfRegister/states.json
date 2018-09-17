@@ -1,0 +1,234 @@
+[
+  {
+    "name": "Arquitetura e Engenharia",
+    "value": "architecture_and_engineering"
+  },
+  {
+    "name": "Arte e Antiguidades",
+    "value": "art_and_antiques"
+  },
+  {
+    "name": "Artigos Religiosos",
+    "value": "religious_products"
+  },
+  {
+    "name": "Automóveis e Acessórios",
+    "value": "cars_and_autoparts"
+  },
+  {
+    "name": "Bebês",
+    "value": "babies"
+  },
+  {
+    "name": "Brinquedos e Colecionáveis",
+    "value": "toys_and_collectibles"
+  },
+  {
+    "name": "Cama, Mesa e Banho",
+    "value": "bed_bath_table"
+  },
+  {
+    "name": "Celulares e Telefonia",
+    "value": "cellphones_and_telephony"
+  },
+  {
+    "name": "Clube de Compras",
+    "value": "collective_discount"
+  },
+  {
+    "name": "Comida, Bebida e Nutricional",
+    "value": "food_beverage_nutrition"
+  },
+  {
+    "name": "Comércio Variado",
+    "value": "diverse"
+  },
+  {
+    "name": "Construção e Jardinagem",
+    "value": "construction_and_gardening"
+  },
+  {
+    "name": "Consultoria Empresarial",
+    "value": "consulting"
+  },
+  {
+    "name": "Conteúdo Adulto",
+    "value": "adult_content"
+  },
+  {
+    "name": "Câmeras",
+    "value": "cameras"
+  },
+  {
+    "name": "Dentistas",
+    "value": "dentist"
+  },
+  {
+    "name": "Descarga de áudio/vídeo",
+    "value": "audio_video_download"
+  },
+  {
+    "name": "Desenvolvimento de Software",
+    "value": "software"
+  },
+  {
+    "name": "Educação",
+    "value": "education"
+  },
+  {
+    "name": "Eletrodomésticos",
+    "value": "home_appliances"
+  },
+  {
+    "name": "Eletrônicos",
+    "value": "electronics"
+  },
+  {
+    "name": "Entidades Públicas",
+    "value": "public_entities"
+  },
+  {
+    "name": "Esporte",
+    "value": "sports"
+  },
+  {
+    "name": "Eventos",
+    "value": "events"
+  },
+  {
+    "name": "Filmes, Seriados e Shows",
+    "value": "movies_series_shows"
+  },
+  {
+    "name": "Flores e Cestas",
+    "value": "flowers_and_baskets"
+  },
+  {
+    "name": "Fotografia e Gravação",
+    "value": "photography_and_recording"
+  },
+  {
+    "name": "Hardware e Acessórios",
+    "value": "hardware_and_accessories"
+  },
+  {
+    "name": "Hospedagem de Sites",
+    "value": "websites_hosting"
+  },
+  {
+    "name": "Hotéis",
+    "value": "hotels"
+  },
+  {
+    "name": "Imóveis",
+    "value": "properties"
+  },
+  {
+    "name": "Indústria e Agronegócios",
+    "value": "industry_and_farming"
+  },
+  {
+    "name": "Instrumentos Musicais",
+    "value": "musical_instruments"
+  },
+  {
+    "name": "Jogos Online",
+    "value": "online_games"
+  },
+  {
+    "name": "Jogos, Lazer e Divertimento",
+    "value": "games_and_leisure"
+  },
+  {
+    "name": "Jóias e Relógios",
+    "value": "jewelries"
+  },
+  {
+    "name": "Leilão de um centavo",
+    "value": "penny_auction"
+  },
+  {
+    "name": "Livros",
+    "value": "books"
+  },
+  {
+    "name": "Materiais de construção",
+    "value": "construction_material"
+  },
+  {
+    "name": "Médicos",
+    "value": "doctor"
+  },
+  {
+    "name": "Móveis e Decoração",
+    "value": "furnitures_and_decor"
+  },
+  {
+    "name": "Outras atividades profissionais",
+    "value": "other_professional_activities"
+  },
+  {
+    "name": "Papelaria",
+    "value": "office_supplies"
+  },
+  {
+    "name": "Perfumaria e Cosméticos",
+    "value": "perfumery_and_cosmetics"
+  },
+  {
+    "name": "Personal Trainers",
+    "value": "personal_trainers"
+  },
+  {
+    "name": "Pet Shop",
+    "value": "petshop"
+  },
+  {
+    "name": "Publicidade e Pesquisas de Mercado",
+    "value": "advertising_and_market_research"
+  },
+  {
+    "name": "Roupas e Acessórios",
+    "value": "apparel_and_accessories"
+  },
+  {
+    "name": "Salões de Beleza",
+    "value": "beauty_salon"
+  },
+  {
+    "name": "Saúde",
+    "value": "health"
+  },
+  {
+    "name": "Seguros e outros serviços financeiros",
+    "value": "insurance_and_financial_services"
+  },
+  {
+    "name": "Serviços",
+    "value": "services"
+  },
+  {
+    "name": "Serviços Jurídicos",
+    "value": "legal_services"
+  },
+  {
+    "name": "Telecomunicações",
+    "value": "telecommunications"
+  },
+  {
+    "name": "Terceiro Setor",
+    "value": "third_sector"
+  },
+  {
+    "name": "Táxi",
+    "value": "transport"
+  },
+  {
+    "name": "Utensílios domésticos",
+    "value": "household_items"
+  },
+  {
+    "name": "Viagem e Turismo",
+    "value": "travel_and_tourism"
+  }
+]

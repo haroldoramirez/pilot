@@ -24,7 +24,6 @@ storiesOf('Pages', module)
     <SelfRegister
       onCompanyCreated={actionCompanyCreated}
       onRedirectToHome={actionRedirectToHome}
-      step="create-account"
       t={translate}
     />
   ))

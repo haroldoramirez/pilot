@@ -67,7 +67,7 @@ const SelfRegisterBusinessDetailFuture = ({ onSubmit, registerData, t }) => {
           <Row>
             <Col tv={12} desk={12} tablet={12} palm={12}>
               <FormDropdown
-                name="platform"
+                name="salesStarts"
                 options={optionsSalesStarts}
                 placeholder={t('pages.self_register.business_detail_future.when_will_open')}
               />

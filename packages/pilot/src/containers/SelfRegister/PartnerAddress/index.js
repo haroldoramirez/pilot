@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {
   Button,
   Col,
+  FormDropdown,
   FormInput,
   Grid,
   Row,
@@ -12,6 +13,7 @@ import Form from 'react-vanilla-form'
 import { handleMaskField, onFormMaskFieldChange } from '../formMaskFieldHelpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
+import optionsSegments from '../states.json'
 import requiredValidation from '../../../validation/required'
 import style from '../style.css'
 
@@ -60,6 +62,7 @@ class SelfRegisterPartnerAddress extends Component {
             city: isRequired(t),
             neighborhood: isRequired(t),
             number: isRequired(t),
+            state: isRequired(t),
             street: isRequired(t),
           }}
         >
@@ -76,40 +79,47 @@ class SelfRegisterPartnerAddress extends Component {
             </Row>
 
             <Row>
-              <Col tv={12} desk={12} tablet={12} palm={12}>
+              <Col tv={8} desk={8} tablet={8} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_address.street')}
                   name="street"
                 />
               </Col>
-            </Row>
-
-            <Row>
               <Col tv={4} desk={4} tablet={4} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_address.number')}
                   name="number"
                 />
               </Col>
+            </Row>
+
+            <Row>
               <Col tv={8} desk={8} tablet={8} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_address.complement')}
                   name="complement"
                 />
               </Col>
-            </Row>
-
-            <Row>
               <Col tv={4} desk={4} tablet={4} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_address.neighborhood')}
                   name="neighborhood"
                 />
               </Col>
+            </Row>
+
+            <Row>
               <Col tv={8} desk={8} tablet={8} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_address.city')}
                   name="city"
+                />
+              </Col>
+              <Col tv={4} desk={4} tablet={4} palm={12}>
+                <FormDropdown
+                  name="state"
+                  options={optionsSegments}
+                  placeholder={t('pages.self_register.partner_address.state')}
                 />
               </Col>
             </Row>
