@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { translate } from 'react-i18next'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { compose } from 'ramda'
 
@@ -23,8 +24,9 @@ const mapStateToProps = (state) => {
 }
 
 const enhanced = compose(
+  connect(mapStateToProps),
   translate(),
-  connect(mapStateToProps)
+  withRouter
 )
 
 class AddRecipientPage extends Component {
@@ -37,19 +39,13 @@ class AddRecipientPage extends Component {
     this.submitRecipient = this.submitRecipient.bind(this)
   }
 
-  /* eslint-disable class-methods-use-this */
-
-  // TODO: voltar para a rota /recipients
   onExit () {
-    console.log('onExit')
+    this.props.history.replace('/recipients')
   }
 
-  // TODO: ir para para a rota /recipients/details/:id
-  onViewDetails (recipient) {
-    console.log('onViewDetails', recipient)
+  onViewDetails (recipientId) {
+    this.props.history.replace(`/recipients/details/${recipientId}`)
   }
-
-  /* eslint-enable class-methods-use-this */
 
   submitRecipient (recipient) {
     return this.props.client.recipient.add(recipient)
@@ -90,6 +86,9 @@ AddRecipientPage.propTypes = {
   canConfigureAnticipation: PropTypes.bool,
   minimumAnticipationDays: PropTypes.number,
   t: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func,
+  }).isRequired,
 }
 
 AddRecipientPage.defaultProps = {
