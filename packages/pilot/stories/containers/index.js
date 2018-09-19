@@ -58,7 +58,6 @@ import Anticipation from './Anticipation'
 import ConclusionStep from './AddRecipient/ConclusionStep'
 import ErrorStep from './AddRecipient/ErrorStep'
 import ConfigurationStep from './AddRecipient/ConfigurationsStep'
-import RecipientDetailInfo from './RecipientDetailInfo'
 import RecipientBalance from './RecipientDetails/RecipientBalance'
 import {
   AddRecipientFetchError,
@@ -66,10 +65,11 @@ import {
   AddRecipientSuccess,
   AddRecipientSuccessNoAccounts,
 } from './AddRecipient'
+import RecipientDetailConfig from './RecipientDetails/Config'
 
 storiesOf('Containers', module)
-  .add('Recipient Detail Info', () => (
-    <RecipientDetailInfo />
+  .add('Recipient Configuration', () => (
+    <RecipientDetailConfig />
   ))
   .add('Add Recipient', () => (
     <AddRecipientSuccess />
